@@ -1,7 +1,7 @@
-# Episode 10X
+# Episode 122 - Angular CDK Datatable
 
+Build reactive datatables with the Angular CDK
 
-1. `git clone <this-repo>` 
-2. `npm install`
-3.  Add your firebase credentials to the `app.module`
-4. `ng serve`
+1.  `git clone <this-repo>`
+2.  `npm install`
+3.  `ng serve`

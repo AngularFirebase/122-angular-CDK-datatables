@@ -1,0 +1,73 @@
+<ngb-pagination [collectionSize]="(dataSource$ | async)?.length" [pageSize]="2" [page]="currentPage$.value" (pageChange)="currentPage$.next($event)">
+</ngb-pagination>
+
+
+<table cdk-table [dataSource]="dataOnPage$" class="table table-striped table-dark table-hover">
+
+    <tr cdk-header-row *cdkHeaderRowDef="columns"></tr>
+    <tr cdk-row *cdkRowDef="let row; columns: columns" [ngClass]="{
+        'bg-success': (minMax$ | async)?.max === row.name,
+        'bg-danger': (minMax$ | async)?.min === row.name
+      }"></tr>
+
+    <!-- Hero Name Column -->
+    <ng-container cdkColumnDef="name">
+        <th cdk-header-cell *cdkHeaderCellDef> Hero Name </th>
+        <td cdk-cell *cdkCellDef="let row"> {{row.name}} </td>
+    </ng-container>
+
+    <!-- Hero Types Column -->
+    <ng-container cdkColumnDef="types">
+        <th cdk-header-cell *cdkHeaderCellDef> Types </th>
+        <td cdk-cell *cdkCellDef="let row"> {{row.types}} </td>
+    </ng-container>
+
+    <!-- Hero Attack Column -->
+    <ng-container cdkColumnDef="attack">
+        <th cdk-header-cell *cdkHeaderCellDef> Attack </th>
+        <td cdk-cell *cdkCellDef="let row"> {{row.attack}} </td>
+    </ng-container>
+
+    <!-- Hero Defense Column -->
+    <ng-container cdkColumnDef="defense">
+        <th cdk-header-cell *cdkHeaderCellDef> Defense </th>
+        <td cdk-cell *cdkCellDef="let row"> {{row.defense}} </td>
+    </ng-container>
+
+    <!-- Hero Speed Column -->
+    <ng-container cdkColumnDef="speed">
+        <th cdk-header-cell *cdkHeaderCellDef> Speed </th>
+        <td cdk-cell *cdkCellDef="let row"> {{row.speed}} </td>
+    </ng-container>
+
+    <!-- Hero Healing Column -->
+    <ng-container cdkColumnDef="healing">
+        <th cdk-header-cell *cdkHeaderCellDef> Healing </th>
+        <td cdk-cell *cdkCellDef="let row"> {{row.healing}} </td>
+    </ng-container>
+
+    <!-- Hero Recovery Column -->
+    <ng-container cdkColumnDef="recovery">
+        <th cdk-header-cell *cdkHeaderCellDef> Recovery </th>
+        <td cdk-cell *cdkCellDef="let row"> {{row.recovery}} </td>
+    </ng-container>
+
+    <!-- Hero Health Column -->
+    <ng-container cdkColumnDef="health">
+        <th cdk-header-cell *cdkHeaderCellDef> Health </th>
+        <td cdk-cell *cdkCellDef="let row"> {{row.health}} </td>
+    </ng-container>
+
+
+    <!-- Level Up Column -->
+    <ng-container cdkColumnDef="levelUp">
+        <th cdk-header-cell *cdkHeaderCellDef></th>
+        <td cdk-cell *cdkCellDef="let row">
+            <button (click)="levelUp(row.name)" class="btn btn-success">Level Up!!!</button>
+        </td>
+    </ng-container>
+
+
+
+
+</table>

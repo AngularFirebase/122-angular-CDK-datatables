@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
-import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +6,5 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private afs: AngularFirestore) {
-    //   afs.collection('animals').snapshotChanges(
-    // ).subscribe(x => {
-    //   console.log(x)
-    // })
-    const fire = firebase.firestore().doc('animals/elephant');
-  }
+  constructor() {}
 }
